@@ -43,6 +43,8 @@ Same facts. Different shape.
 9. Plain glue words, exact content words.
 10. Visual formats beat prose.
 
+Plus **dyslexia fit**: say **"dyslexia fit"** to your agent and it interviews you — 7 questions, bold defaults — then writes a `## My profile` block that overrides any rule. The interview script lives inside the rules file, so every harness below gets it for free.
+
 ## Install
 
 The rules live in one file: [`i-have-dyslexia.md`](i-have-dyslexia.md). Point your agent at it.
@@ -60,7 +62,9 @@ Step-by-step per harness: [INSTALL.md](INSTALL.md)
 
 ## Tune it
 
-Edit `i-have-dyslexia.md`. Add a profile block at the top. The agent reads it first.
+**Easy way:** load the rules, then say **"dyslexia fit"**. The agent asks 7 questions and writes your profile for you.
+
+**Manual way:** edit `i-have-dyslexia.md`. Add a profile block at the top. The agent reads it first.
 
 ```markdown
 ## My profile
