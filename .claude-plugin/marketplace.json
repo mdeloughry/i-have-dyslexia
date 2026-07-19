@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "i-have-dyslexia",
+  "description": "Shape Claude Code output for a dyslexic reader. Headline first, short sentences, bold anchors, full content kept.",
+  "owner": {
+    "name": "Matthew Peck-Deloughry"
+  },
+  "plugins": [
+    {
+      "name": "i-have-dyslexia",
+      "description": "Dyslexia-friendly output shaping for Claude Code. Structure changes, substance stays.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
