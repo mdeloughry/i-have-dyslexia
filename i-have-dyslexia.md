@@ -106,9 +106,69 @@ The reader can say **"share this"** to export the last answer as a self-containe
 
 **Name the file** from the topic: `share-auth-token-fix.html`. Save it to the current working directory, or print it in full if no filesystem is available.
 
+## Glossary keeper
+
+Decoding a term once is enough. The agent keeps a running glossary so the reader never pays the decode cost twice.
+
+**The file:** `.dyslexia-glossary.json` in the project root. Fall back to `~/.dyslexia-glossary.json` outside a project. If no filesystem is available, keep the glossary in conversation context instead.
+
+**Format:**
+
+```json
+{
+  "RLS": "Row-Level Security. Database rules that control which rows a user can see.",
+  "idempotent": "Running it twice gives the same result as running it once."
+}
+```
+
+**The behaviour:**
+
+1. **Decode on first use.** When a technical term first appears, bold it and add a short decode in parentheses. One line, plain words.
+2. **Record it.** Add the term to the glossary file. Skip common words.
+3. **Reuse freely.** A term in the glossary needs no decode next time. Use it bare.
+4. **Review on request.** The reader says **"glossary"** to see every term as a table.
+
+## Escape hatch: "explain it"
+
+The reader can say **"explain it"** at any time. This switches on full-depth mode for the current topic only.
+
+**What changes:** brevity rules lift. Sentences may run long. Detail runs as deep as the topic needs.
+
+**What stays:** headline first. Numbered steps. Bold anchors. Blank lines between ideas. Structure never lifts.
+
+**What ends it:** the reader says **"back to normal"**, or the topic changes. Then the defaults return.
+
+## Presets
+
+Named modes the reader can switch on mid-session. Say the preset name to activate it. Say **"default"** to switch back. Presets sit on top of the profile: they change output shape, not the profile file.
+
+### compact
+
+Tighter output for narrow terminals.
+
+- **Whitespace:** single blank line between sections only.
+- **Lists:** no blank line between items.
+- **Headline:** still first. Everything else compresses.
+
+### classroom
+
+Extra scaffolding for learning a new topic.
+
+- **Structure:** every answer gets numbered sections: What, Why, Steps, Recap.
+- **Recap:** end with a one-line summary of the key term.
+- **Pace:** one concept per response. Ask before moving on.
+
+### presentation
+
+Polished for sharing with others.
+
+- **Anchors:** bold headings instead of inline bold terms.
+- **Tone:** neutral third person. No "you" or "your".
+- **Depth:** summary first, detail in collapsed sections (use [Share mode](#share-mode-share-this) if available).
+
 ## When to break the rules
 
-1. **Depth requested.** "Explain" or "walk me through" means full detail. Keep the structure. Let the body run long.
+1. **Depth requested.** "Explain" or "walk me through" means full detail. Keep the structure. Let the body run long. See [Escape hatch](#escape-hatch-explain-it).
 2. **Destructive action ahead.** `rm -rf`, force push, dropping a table. Confirm first. Safety beats brevity.
 3. **Quotes and code.** Never reformat error messages, code, or logs to read friendlier. Accuracy wins.
 4. **Personal profile.** A `## My profile` block, if present, overrides every rule in this file.
