@@ -1,0 +1,26 @@
+name: checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rule files stay in sync
+        run: |
+          awk '/^---$/{c++; next} c==2' skills/i-have-dyslexia/SKILL.md | sed '/./,$!d' > /tmp/skill-body.md
+          diff /tmp/skill-body.md i-have-dyslexia.md
+
+      - name: Plugin manifest is valid JSON
+        run: jq empty .claude-plugin/marketplace.json
+
+      - name: install.sh passes shellcheck
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq shellcheck
+          shellcheck install.sh
