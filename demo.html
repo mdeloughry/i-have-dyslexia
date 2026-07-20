@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>i-have-dyslexia — before / after</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --fg: #1a1a1a;
+    --muted: #555;
+    --accent: #0b5fff;
+    --card: #ffffff;
+    --border: #ddd;
+    --code-bg: #f0f0f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1e1e1e;
+      --fg: #e8e8e8;
+      --muted: #aaa;
+      --accent: #6ea8ff;
+      --card: #262626;
+      --border: #444;
+      --code-bg: #333;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, "Segoe UI", Verdana, Tahoma, sans-serif;
+    line-height: 1.6;
+  }
+  main {
+    max-width: 72ch;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+  h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
+  .sub { color: var(--muted); margin-top: 0; }
+
+  .toggle {
+    display: flex;
+    gap: 0;
+    margin: 1.5rem 0;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    overflow: hidden;
+    width: fit-content;
+  }
+  .toggle button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--accent);
+    font: inherit;
+    font-weight: 700;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+  }
+  .toggle button[aria-pressed="true"] {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .pane {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+  }
+  .pane[hidden] { display: none; }
+
+  /* "before" pane: deliberately dense, standard agent output */
+  #before p { margin: 0 0 0.75rem; }
+
+  /* "after" pane: the rules applied */
+  #after p { margin: 0 0 1rem; }
+  #after ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+  #after li { margin-bottom: 0.6rem; }
+  code {
+    background: var(--code-bg);
+    border-radius: 4px;
+    padding: 0.1em 0.35em;
+    font-family: "JetBrains Mono", "Fira Code", Menlo, monospace;
+    font-size: 0.92em;
+  }
+  .rules-link { margin-top: 2rem; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+
+  <h1>i-have-dyslexia</h1>
+  <p class="sub">The same answer, two ways. Toggle to feel the difference.</p>
+
+  <div class="toggle" role="group" aria-label="Output style">
+    <button id="btn-before" aria-pressed="true">Before</button>
+    <button id="btn-after" aria-pressed="false">After</button>
+  </div>
+
+  <div id="before" class="pane" role="region" aria-label="Standard agent output">
+    <p>The issue you're seeing is most likely related to the way tokens are validated in the middleware layer, specifically in the verifyToken function in src/auth.ts around lines 42 to 58, which appears to be using an outdated version of the jsonwebtoken API, so I'd recommend updating the package to the latest version and then rewriting the function to match the new API, after which you should run the auth tests to confirm nothing else breaks. It's also worth noting that your dependency versions overall might be worth reviewing at some point, and there are a few other places where similar patterns appear. Hope this helps! Let me know if you'd like me to go into more detail on any of this.</p>
+  </div>
+
+  <div id="after" class="pane" role="region" aria-label="Dyslexia-friendly agent output" hidden>
+    <p><strong>Token validation</strong> is the bug. The fix is 3 steps.</p>
+    <ol>
+      <li><strong>Update</strong> the package: <code>npm install jsonwebtoken@latest</code></li>
+      <li><strong>Rewrite</strong> <code>verifyToken</code> in <code>src/auth.ts:42-58</code></li>
+      <li><strong>Run</strong> the tests: <code>npm test -- auth.spec.ts</code></li>
+    </ol>
+    <p><strong>Cause:</strong> <code>verifyToken</code> uses the old <code>jsonwebtoken</code> API. v9 changed the signature.</p>
+    <p><strong>Next:</strong> run step 1 now.</p>
+  </div>
+
+  <p class="rules-link">Same facts. Different shape. <a href="https://github.com/mdeloughry/i-have-dyslexia">Get the rules</a>.</p>
+
+</main>
+
+<script>
+  const before = document.getElementById('before');
+  const after = document.getElementById('after');
+  const btnBefore = document.getElementById('btn-before');
+  const btnAfter = document.getElementById('btn-after');
+
+  function show(which) {
+    before.hidden = which !== 'before';
+    after.hidden = which !== 'after';
+    btnBefore.setAttribute('aria-pressed', which === 'before');
+    btnAfter.setAttribute('aria-pressed', which === 'after');
+  }
+
+  btnBefore.addEventListener('click', () => show('before'));
+  btnAfter.addEventListener('click', () => show('after'));
+</script>
+</body>
+</html>

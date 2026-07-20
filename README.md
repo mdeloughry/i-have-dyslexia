@@ -26,7 +26,7 @@ A dyslexia port of [i-have-adhd](https://github.com/ayghri/i-have-adhd) by Ayoub
 >
 > **Next:** run step 1 now.
 
-Same facts. Different shape.
+Same facts. Different shape. Try the interactive toggle: [demo.html](demo.html) (open in a browser, or serve with GitHub Pages).
 
 ## The rules
 
@@ -47,9 +47,19 @@ Plus **dyslexia fit**: say **"dyslexia fit"** to your agent and it interviews yo
 
 Plus **glossary keeper**: the agent decodes each technical term once, records it in `.dyslexia-glossary.json`, and never makes you decode it twice. Say **"glossary"** to review your terms.
 
+Plus **escape hatch**: say **"explain it"** and the agent drops brevity for the current topic — full depth, structure kept. Say **"back to normal"** to return.
+
+Plus **presets**: switch output mode mid-session — **"compact"** for narrow terminals, **"classroom"** for learning, **"presentation"** for sharing. Say **"default"** to switch back.
+
 ## Install
 
-The rules live in one file: [`i-have-dyslexia.md`](i-have-dyslexia.md). Point your agent at it.
+**One command.** Detects your harness and installs the rules:
+
+```sh
+curl -sSL https://raw.githubusercontent.com/mdeloughry/i-have-dyslexia/main/install.sh | sh
+```
+
+Or pick your harness by hand. The rules live in one file: [`i-have-dyslexia.md`](i-have-dyslexia.md).
 
 | Harness | Where the rules go |
 |---|---|
@@ -61,6 +71,10 @@ The rules live in one file: [`i-have-dyslexia.md`](i-have-dyslexia.md). Point yo
 | Command Code | Paste into `~/.commandcode/AGENTS.md` |
 
 Step-by-step per harness: [INSTALL.md](INSTALL.md)
+
+## Display setup
+
+The rules fix what the agent writes. [DISPLAY.md](DISPLAY.md) fixes how your screen shows it — fonts, spacing, contrast, terminal and editor settings.
 
 ## Tune it
 
