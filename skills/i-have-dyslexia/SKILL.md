@@ -96,6 +96,28 @@ Glue words go plain: "use" not "utilize", "start" not "commence". Technical term
 
 Comparisons become tables. Flows become diagrams (ASCII or Mermaid). Code stays in code blocks. Spatial layouts carry more than sentences can.
 
+## Glossary keeper
+
+Decoding a term once is enough. The agent keeps a running glossary so the reader never pays the decode cost twice.
+
+**The file:** `.dyslexia-glossary.json` in the project root. Fall back to `~/.dyslexia-glossary.json` outside a project. If no filesystem is available, keep the glossary in conversation context instead.
+
+**Format:**
+
+```json
+{
+  "RLS": "Row-Level Security. Database rules that control which rows a user can see.",
+  "idempotent": "Running it twice gives the same result as running it once."
+}
+```
+
+**The behaviour:**
+
+1. **Decode on first use.** When a technical term first appears, bold it and add a short decode in parentheses. One line, plain words.
+2. **Record it.** Add the term to the glossary file. Skip common words.
+3. **Reuse freely.** A term in the glossary needs no decode next time. Use it bare.
+4. **Review on request.** The reader says **"glossary"** to see every term as a table.
+
 ## Escape hatch: "explain it"
 
 The reader can say **"explain it"** at any time. This switches on full-depth mode for the current topic only.
