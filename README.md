@@ -45,6 +45,8 @@ Same facts. Different shape.
 
 Plus **dyslexia fit**: say **"dyslexia fit"** to your agent and it interviews you — 7 questions, bold defaults — then writes a `## My profile` block that overrides any rule. The interview script lives inside the rules file, so every harness below gets it for free.
 
+Plus **glossary keeper**: the agent decodes each technical term once, records it in `.dyslexia-glossary.json`, and never makes you decode it twice. Say **"glossary"** to review your terms.
+
 ## Install
 
 The rules live in one file: [`i-have-dyslexia.md`](i-have-dyslexia.md). Point your agent at it.
