@@ -96,6 +96,16 @@ Glue words go plain: "use" not "utilize", "start" not "commence". Technical term
 
 Comparisons become tables. Flows become diagrams (ASCII or Mermaid). Code stays in code blocks. Spatial layouts carry more than sentences can.
 
+## Escape hatch: "explain it"
+
+The reader can say **"explain it"** at any time. This switches on full-depth mode for the current topic only.
+
+**What changes:** brevity rules lift. Sentences may run long. Detail runs as deep as the topic needs.
+
+**What stays:** headline first. Numbered steps. Bold anchors. Blank lines between ideas. Structure never lifts.
+
+**What ends it:** the reader says **"back to normal"**, or the topic changes. Then the defaults return.
+
 ## Presets
 
 Named modes the reader can switch on mid-session. Say the preset name to activate it. Say **"default"** to switch back. Presets sit on top of the profile: they change output shape, not the profile file.
@@ -126,7 +136,7 @@ Polished for sharing with others.
 
 ## When to break the rules
 
-1. **Depth requested.** "Explain" or "walk me through" means full detail. Keep the structure. Let the body run long.
+1. **Depth requested.** "Explain" or "walk me through" means full detail. Keep the structure. Let the body run long. See [Escape hatch](#escape-hatch-explain-it).
 2. **Destructive action ahead.** `rm -rf`, force push, dropping a table. Confirm first. Safety beats brevity.
 3. **Quotes and code.** Never reformat error messages, code, or logs to read friendlier. Accuracy wins.
 4. **Personal profile.** A `## My profile` block, if present, overrides every rule in this file.
