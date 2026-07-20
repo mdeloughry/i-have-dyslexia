@@ -96,6 +96,21 @@ Glue words go plain: "use" not "utilize", "start" not "commence". Technical term
 
 Comparisons become tables. Flows become diagrams (ASCII or Mermaid). Code stays in code blocks. Spatial layouts carry more than sentences can.
 
+## Share mode: "share this"
+
+The reader can say **"share this"** to export the last answer as a self-contained HTML page.
+
+**Build the page like this:**
+
+1. **One file.** All CSS inline. No external assets. No JavaScript required.
+2. **Headline first.** The answer headline becomes the page `<h1>` and `<title>`.
+3. **Structure kept.** Bold anchors, numbered steps, tables, and code blocks carry over exactly.
+4. **Expandable depth.** Detail sections use `<details>`/`<summary>`. Collapsed by default.
+5. **Readable defaults.** Sans-serif font, line-height 1.6, max-width 70ch, left-aligned, no italics.
+6. **Dark-mode safe.** Use `prefers-color-scheme` or neutral colours that work in both.
+
+**Name the file** from the topic: `share-auth-token-fix.html`. Save it to the current working directory, or print it in full if no filesystem is available.
+
 ## When to break the rules
 
 1. **Depth requested.** "Explain" or "walk me through" means full detail. Keep the structure. Let the body run long.
