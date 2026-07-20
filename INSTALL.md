@@ -2,6 +2,22 @@
 
 **One file. Any harness.** The rules live in `i-have-dyslexia.md`. Every method below gets that file in front of your agent.
 
+## One-command install
+
+Detects your harness and installs automatically:
+
+```sh
+curl -sSL https://raw.githubusercontent.com/mdeloughry/i-have-dyslexia/main/install.sh | sh
+```
+
+**What it does:**
+
+1. **Detects** Claude Code, Command Code, Cursor, Windsurf, Gemini CLI, and AGENTS.md projects.
+2. **Installs** the rules into each one found.
+3. **Skips** anything already installed. Safe to re-run.
+
+Prefer manual? Pick your harness below.
+
 ## TL;DR
 
 1. **Clone** the repo: `git clone https://github.com/mdeloughry/i-have-dyslexia ./i-have-dyslexia`
