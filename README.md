@@ -60,6 +60,10 @@ The rules live in one file: [`i-have-dyslexia.md`](i-have-dyslexia.md). Point yo
 
 Step-by-step per harness: [INSTALL.md](INSTALL.md)
 
+## Display setup
+
+The rules fix what the agent writes. [DISPLAY.md](DISPLAY.md) fixes how your screen shows it — fonts, spacing, contrast, terminal and editor settings.
+
 ## Tune it
 
 **Easy way:** load the rules, then say **"dyslexia fit"**. The agent asks 7 questions and writes your profile for you.
