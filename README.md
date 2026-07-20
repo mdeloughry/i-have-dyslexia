@@ -26,7 +26,7 @@ A dyslexia port of [i-have-adhd](https://github.com/ayghri/i-have-adhd) by Ayoub
 >
 > **Next:** run step 1 now.
 
-Same facts. Different shape.
+Same facts. Different shape. Try the interactive toggle: [demo.html](demo.html) (open in a browser, or serve with GitHub Pages).
 
 ## The rules
 
