@@ -45,6 +45,8 @@ Same facts. Different shape.
 
 Plus **dyslexia fit**: say **"dyslexia fit"** to your agent and it interviews you — 7 questions, bold defaults — then writes a `## My profile` block that overrides any rule. The interview script lives inside the rules file, so every harness below gets it for free.
 
+Plus **escape hatch**: say **"explain it"** and the agent drops brevity for the current topic — full depth, structure kept. Say **"back to normal"** to return.
+
 ## Install
 
 The rules live in one file: [`i-have-dyslexia.md`](i-have-dyslexia.md). Point your agent at it.
