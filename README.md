@@ -47,7 +47,13 @@ Plus **dyslexia fit**: say **"dyslexia fit"** to your agent and it interviews yo
 
 ## Install
 
-The rules live in one file: [`i-have-dyslexia.md`](i-have-dyslexia.md). Point your agent at it.
+**One command.** Detects your harness and installs the rules:
+
+```sh
+curl -sSL https://raw.githubusercontent.com/mdeloughry/i-have-dyslexia/main/install.sh | sh
+```
+
+Or pick your harness by hand. The rules live in one file: [`i-have-dyslexia.md`](i-have-dyslexia.md).
 
 | Harness | Where the rules go |
 |---|---|
