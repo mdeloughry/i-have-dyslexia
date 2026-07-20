@@ -45,6 +45,8 @@ Same facts. Different shape. Try the interactive toggle: [demo.html](demo.html) 
 
 Plus **dyslexia fit**: say **"dyslexia fit"** to your agent and it interviews you — 7 questions, bold defaults — then writes a `## My profile` block that overrides any rule. The interview script lives inside the rules file, so every harness below gets it for free.
 
+Plus **share mode**: say **"share this"** and the last answer becomes a self-contained HTML page — inline CSS, expandable detail sections, readable defaults. Send it to anyone.
+
 Plus **glossary keeper**: the agent decodes each technical term once, records it in `.dyslexia-glossary.json`, and never makes you decode it twice. Say **"glossary"** to review your terms.
 
 Plus **escape hatch**: say **"explain it"** and the agent drops brevity for the current topic — full depth, structure kept. Say **"back to normal"** to return.
