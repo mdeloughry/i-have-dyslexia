@@ -1,6 +1,6 @@
 # Install i-have-dyslexia
 
-**One file. Any harness.** The rules live in `i-have-dyslexia.md`. Every method below gets that file in front of your agent.
+**Local rules. Any harness.** The installer stores the full rules locally. Harness instructions point to that local file.
 
 ## One-command install
 
@@ -13,10 +13,21 @@ curl -sSL https://raw.githubusercontent.com/mdeloughry/i-have-dyslexia/main/inst
 **What it does:**
 
 1. **Detects** Claude Code, Command Code, Cursor, Windsurf, Gemini CLI, and AGENTS.md projects.
-2. **Installs** the rules into each one found.
-3. **Skips** anything already installed. Safe to re-run.
+2. **Installs** the full rules locally, not a shortened remote link.
+3. **Adds** a clearly marked managed block to harness instruction files.
+4. **Protects** changed local rule files from overwrite.
 
 Prefer manual? Pick your harness below.
+
+### Updates and removal
+
+```sh
+curl -sSL https://raw.githubusercontent.com/mdeloughry/i-have-dyslexia/main/install.sh | sh -s -- --dry-run
+curl -sSL https://raw.githubusercontent.com/mdeloughry/i-have-dyslexia/main/install.sh | sh -s -- --update
+curl -sSL https://raw.githubusercontent.com/mdeloughry/i-have-dyslexia/main/install.sh | sh -s -- --uninstall
+```
+
+`--update` replaces only rules unchanged since the installer added them. `--uninstall` removes its managed instruction and unchanged rules. It keeps locally changed rules and every profile file.
 
 ## TL;DR
 
@@ -57,7 +68,7 @@ Always follow the rules in the `i-have-dyslexia` skill: headline first, short se
 Follow all rules in [i-have-dyslexia.md](i-have-dyslexia.md) for every response.
 ```
 
-**Global (every project):** paste the full contents of `i-have-dyslexia.md` into `~/.codex/AGENTS.md` or your harness's global memory file.
+**Global (every project):** store `i-have-dyslexia.md` beside your harness memory file. Point the memory file at it.
 
 ## Cursor (rules file)
 
@@ -103,8 +114,8 @@ Send this prompt in a fresh session:
 
 **`marketplace add` fails.** Point at the repo root, not `.claude-plugin/`. The path must contain `.claude-plugin/marketplace.json`.
 
-**Agent drops detail to stay short.** That is rule 4 failing. Add to your profile block: "Full technical depth always. Structure short, content complete."
+**Agent drops detail to stay short.** That is rule 4 failing. Add to `i-have-dyslexia.profile.md`: "Full technical depth always. Structure short, content complete."
 
 ## Tune it
 
-Edit `i-have-dyslexia.md`. Keep your personal additions in a `## My profile` block at the top so upstream updates stay easy to merge.
+Create `i-have-dyslexia.profile.md` beside `i-have-dyslexia.md`. Start with [i-have-dyslexia.profile.example.md](i-have-dyslexia.profile.example.md). Keep only overrides there. The defaults continue to update cleanly.

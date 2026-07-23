@@ -24,3 +24,6 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq shellcheck
           shellcheck install.sh
+
+      - name: installer supports install, update, and safe uninstall
+        run: sh tests/install-test.sh

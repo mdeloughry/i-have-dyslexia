@@ -1,3 +1,4 @@
+<!-- i-have-dyslexia:version=2.0.0 -->
 # i-have-dyslexia
 
 The reader has dyslexia. Output is not simpler. It is shaped so a dyslexic reader can move through it at speed.
@@ -8,7 +9,7 @@ The reader has dyslexia. Output is not simpler. It is shaped so a dyslexic reade
 
 Dyslexia is a reading difference, not a comprehension limit. The reader can handle full technical depth. What slows them down is decoding cost: dense blocks, long sentences, buried points. Keep every fact, every caveat, every technical term. Change the shape, never the substance.
 
-First run? The reader can say **"dyslexia fit"** to personalise every rule below. See [Dyslexia fit](#dyslexia-fit).
+First run? The reader can say **"dyslexia fit"** to personalise every rule below. If a profile file named after this file exists beside it, read and apply it first. See [Dyslexia fit](#dyslexia-fit).
 
 ## What dyslexia changes about reading
 
@@ -40,7 +41,7 @@ Good: "The **issue** is in the middleware. It uses an **outdated** `jsonwebtoken
 
 One anchor per line. The reader should get the gist from the bold words alone.
 
-Use bold. Never italics or ALL CAPS. Both are harder to read.
+Use bold by default. A profile may choose bold headings only or minimal bold. Never use italics or ALL CAPS as scan anchors.
 
 Bad: "You should probably update the jsonwebtoken package first before doing anything else."
 Good: "**Update** `jsonwebtoken` first."
@@ -89,7 +90,7 @@ Glue words go plain: "use" not "utilize", "start" not "commence". Technical term
 
 ### 10. Visual formats beat prose
 
-Comparisons become tables. Flows become diagrams (ASCII or Mermaid). Code stays in code blocks. Spatial layouts carry more than sentences can.
+Use visual formats when they clarify. Comparisons can become tables. Flows can become diagrams (ASCII or Mermaid). Code stays in code blocks. A profile may choose text-first output or visuals only when asked.
 
 ## Share mode: "share this"
 
@@ -171,11 +172,11 @@ Polished for sharing with others.
 1. **Depth requested.** "Explain" or "walk me through" means full detail. Keep the structure. Let the body run long. See [Escape hatch](#escape-hatch-explain-it).
 2. **Destructive action ahead.** `rm -rf`, force push, dropping a table. Confirm first. Safety beats brevity.
 3. **Quotes and code.** Never reformat error messages, code, or logs to read friendlier. Accuracy wins.
-4. **Personal profile.** A `## My profile` block, if present, overrides every rule in this file.
+4. **Personal profile.** A profile file named after this file, if present beside it, overrides every rule in this file.
 
 ## Dyslexia fit
 
-The reader can say **"dyslexia fit"**, **"fit"**, **"fit my dyslexia"**, or invoke `/i-have-dyslexia fit` at any time. Run the interview below. Then save the answers as a `## My profile` block.
+The reader can say **"dyslexia fit"**, **"fit"**, **"fit my dyslexia"**, or invoke `/i-have-dyslexia fit` at any time. Run the interview below. Then save the answers in a profile file named after this file, beside it.
 
 ### Running the interview
 
@@ -196,7 +197,7 @@ The reader can say **"dyslexia fit"**, **"fit"**, **"fit my dyslexia"**, or invo
 ### Saving the profile
 
 1. **Record overrides only.** Skip answers that match the default. The block stays small. Upstream default changes still flow through.
-2. **Write** the block where it loads every session: the top of this file if the reader owns it, or the harness memory file (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, `.cursor/rules/...`) if the rules came from a plugin. If the agent cannot write files, print the block for the reader to paste.
+2. **Write** a profile file named after this file, beside it. Keep it separate from the rules so `install.sh --update` can safely update the rules. If the agent cannot write files, print the block for the reader to paste.
 3. **Format** the block like this:
 
 ```markdown

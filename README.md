@@ -55,7 +55,7 @@ Plus **presets**: switch output mode mid-session — **"compact"** for narrow te
 
 ## Install
 
-**One command.** Detects your harness and installs the rules:
+**One command.** Detects your harness. Installs the full rules locally. Adds a managed instruction that points to them:
 
 ```sh
 curl -sSL https://raw.githubusercontent.com/mdeloughry/i-have-dyslexia/main/install.sh | sh
@@ -66,7 +66,7 @@ Or pick your harness by hand. The rules live in one file: [`i-have-dyslexia.md`]
 | Harness | Where the rules go |
 |---|---|
 | Claude Code | Plugin: `claude plugin marketplace add ./i-have-dyslexia && claude plugin install i-have-dyslexia@i-have-dyslexia` |
-| AGENTS.md tools (Codex, Cursor, Jules, Aider, ...) | Paste into `AGENTS.md` |
+| AGENTS.md tools (Codex, Cursor, Jules, Aider, ...) | Full rules in `.i-have-dyslexia.md`; managed pointer in `AGENTS.md` |
 | Cursor rules | Copy to `.cursor/rules/i-have-dyslexia.md` |
 | Gemini CLI | Paste into `GEMINI.md` |
 | Windsurf | Copy to `.windsurf/rules/i-have-dyslexia.md` |
@@ -82,7 +82,7 @@ The rules fix what the agent writes. [DISPLAY.md](DISPLAY.md) fixes how your scr
 
 **Easy way:** load the rules, then say **"dyslexia fit"**. The agent asks 7 questions and writes your profile for you.
 
-**Manual way:** edit `i-have-dyslexia.md`. Add a profile block at the top. The agent reads it first.
+**Manual way:** create `i-have-dyslexia.profile.md` beside the rules. Start with [i-have-dyslexia.profile.example.md](i-have-dyslexia.profile.example.md). Keeping preferences separate means future rule updates cannot overwrite them.
 
 ```markdown
 ## My profile
