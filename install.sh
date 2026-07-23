@@ -127,8 +127,8 @@ replace_managed_block() {
   {
     printf '\n%s\n' "$START_MARKER"
     printf '<!-- i-have-dyslexia:managed:version=%s -->\n' "$version"
-    printf 'Follow every rule in `%s` for every response.\n' "$rules"
-    printf 'If `%s` exists, apply it as the reader profile.\n' "${rules%.md}.profile.md"
+    printf '%s%s%s\n' 'Follow every rule in `' "$rules" '` for every response.'
+    printf '%s%s%s\n' 'If `' "${rules%.md}.profile.md" '` exists, apply it as the reader profile.'
     printf '%s\n' "$END_MARKER"
   } >> "$temp"
 
